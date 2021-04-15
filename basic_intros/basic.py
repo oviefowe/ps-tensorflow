@@ -2,20 +2,15 @@ import os
 import cProfile
 import tensorflow as tf
 
-def fizzbuzz(max_num):
-  counter = tf.constant(0)
-  max_num = tf.convert_to_tensor(max_num)
-  for num in range(1, max_num.numpy()+1):
-    num = tf.constant(num)
-    if int(num % 3) == 0 and int(num % 5) == 0:
-      print('FizzBuzz')
-    elif int(num % 3) == 0:
-      print('Fizz')
-    elif int(num % 5) == 0:
-      print('Buzz')
-    else:
-      print(num.numpy())
-    counter += 1
+# Actual data
+TRUE_W = 3.0
+TRUE_B = 2.0
+NUM_EXAMPLES = 10000
+
+# Vector of random values
+x = tf.random.normal(shape=[NUM_EXAMPLES])
+noise = tf.random.normal(shape=[NUM_EXAMPLES])
+y = x * TRUE_W + TRUE_B + noise
 
 if __name__ == "__main__":
-    fizzbuzz(30)
+    print(y.numpy()[:10])
