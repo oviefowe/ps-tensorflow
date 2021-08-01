@@ -1,5 +1,3 @@
-import os
-import cProfile
 import tensorflow as tf
 
 # Actual data
